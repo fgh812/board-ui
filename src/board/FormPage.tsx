@@ -24,15 +24,15 @@ export default function BoardFormPage() {
 
     const handleSubmit = async (e: React.FormEvent) => {
         e.preventDefault();
-        console.log();
         if (isEdit && id) {
             await updateBoard({ id: Number(id), ...form});
-            alert('수정 완료');
+            alert("수정 완료하였습니다.")
         } else {
             await createBoard(form);
-            alert('등록 완료');
+            await createBoard(form);
+            alert("등록 완료하였습니다.");
         }
-        navigate('/');
+        navigate("/");
     };
 
     return (

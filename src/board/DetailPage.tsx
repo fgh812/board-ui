@@ -1,6 +1,6 @@
 import { useEffect, useState } from 'react';
 import { useNavigate, useParams } from 'react-router-dom';
-import {getBoardDetail, deleteBoard, recommendBoard} from '../api/board';
+import {getBoardDetail, deleteBoard} from '../api/board';
 import type {BoardResultDTO} from '../types/board';
 
 function formatDate(dateTimeString: string) {
@@ -39,16 +39,6 @@ export default function DetailPage() {
     };
 
     // TODO. 추천 수 증가
-    const handleRecommend = async () => {
-        if (!id) return;
-        try {
-            await recommendBoard(Number(id));
-            const res = await getBoardDetail(Number(id));
-            setData(res.data.boardResultDTO);
-        } catch (err: any) {
-            alert(err.response?.data?.message || '추천 중 오류가 발생했습니다.');
-        }
-    };
 
     return (
         <main className="min-h-screen bg-blue-50 text-gray-900 py-10 px-4">
@@ -75,9 +65,8 @@ export default function DetailPage() {
                                     </div>
                                     <div className="flex justify-end items-center space-x-2">
                                         <span className="font-semibold">추천수:</span>
-                                        <span>{data.recmmCnt ?? 0}</span>
+                                        <span>-</span>
                                         <button
-                                            onClick={handleRecommend}
                                             className="ml-2 px-3 py-1 bg-blue-500 hover:bg-blue-600 text-white rounded text-sm"
                                         >
                                             추천하기
