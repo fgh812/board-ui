@@ -57,7 +57,7 @@ export default function ListPage() {
                             </td>
                             <td className="border-b border-blue-100 p-3 text-center">{item.regId}</td>
                             <td className="border-b border-blue-100 p-3 text-center">{formatDate(item.regDt)}</td>
-                            <td className="border-b border-blue-100 p-3 text-center">-</td>
+                            <td className="border-b border-blue-100 p-3 text-center">{item.recmmCnt ?? 0}</td>
                         </tr>
                     ))}
                     </tbody>
