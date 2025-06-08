@@ -29,7 +29,6 @@ export default function BoardFormPage() {
             alert("수정 완료하였습니다.")
         } else {
             await createBoard(form);
-            await createBoard(form);
             alert("등록 완료하였습니다.");
         }
         navigate("/");
